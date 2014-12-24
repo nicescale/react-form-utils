@@ -1,0 +1,23 @@
+{
+  "name": "react-form-utils",
+  "version": "1.0.0",
+  "description": "Form utils for react",
+  "main": "index.js",
+  "private": true,
+  "peerDependencies": {
+    "react": ">=0.12",
+    "immutable": ">=3.x.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nicescale/react-form-utils.git"
+  },
+  "author": "tsing@nicescale.com",
+  "bugs": {
+    "url": "https://github.com/nicescale/react-form-utils/issues"
+  },
+  "homepage": "https://github.com/nicescale/react-form-utils"
+}

@@ -1,0 +1,13 @@
+{
+  "esnext": true,
+  "node": true,
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "latedef": true,
+  "newcap": false,
+  "sub": true,
+  "undef": true,
+  "unused": true,
+  "browser": true
+}
