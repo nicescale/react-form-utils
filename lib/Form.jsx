@@ -14,8 +14,7 @@ var FieldContextMixin = {
 
 var Field = React.createClass({
   mixins: [
-    FieldContextMixin,
-    React.addons.PureRenderMixin
+    FieldContextMixin
   ],
 
   propTypes: {
@@ -99,8 +98,7 @@ var Field = React.createClass({
 
 var Form = React.createClass({
   mixins: [
-    FormContextMixin,
-    React.addons.PureRenderMixin
+    FormContextMixin
   ],
 
   propTypes: {
