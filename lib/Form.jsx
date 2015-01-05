@@ -46,8 +46,9 @@ var Field = React.createClass({
     if (event.target.type === 'checkbox') {
       value = !!event.target.checked;
     } else if (event.target.multiple) {
-      var selectedOptions = event.target.selectedOptions || event.target.options.filter(o => o.selected);
-      value = selectedOptions.map(o => o.value);
+        var selectedOptions = event.target.selectedOptions ||
+            Array.prototype.filter.call(event.target.options, o => o.selected);
+      value = Array.prototype.map.call(selectedOptions, o => o.value);
     }
     var prevValue = this.state.state.value;
     var state = this.state.state.update(value).notify();
