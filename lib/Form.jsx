@@ -93,7 +93,13 @@ var Field = React.createClass({
     if (this.props.label) {
       extraProps.label = this.props.label;
     }
-    return React.addons.cloneWithProps(React.Children.only(this.props.children), extraProps);
+    var child = React.Children.only(this.props.children);
+    if (child.props.type === 'radio') {
+      extraProps.checked = extraProps.value === child.props.value;
+      delete extraProps.value;
+    }
+
+    return React.cloneElement(child, extraProps);
   }
 });
 
