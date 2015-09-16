@@ -1,11 +1,10 @@
 {
-  "name": "react-form-utils",
+  "name": "@csphere/react-form-utils",
   "version": "1.0.0",
   "description": "Form utils for react",
   "main": "index.js",
-  "private": true,
   "peerDependencies": {
-    "react": ">=0.12",
+    "react": ">=0.123",
     "immutable": ">=3.x.0"
   },
   "scripts": {
