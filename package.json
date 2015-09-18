@@ -2,13 +2,17 @@
   "name": "@csphere/react-form-utils",
   "version": "1.1.1",
   "description": "Form utils for react",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib/"
+  },
   "peerDependencies": {
     "react": ">=0.13.1 || ^0.14.0-rc1",
     "immutable": ">=3.x.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf lib && babel src --out-dir lib"
   },
   "repository": {
     "type": "git",
@@ -18,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/nicescale/react-form-utils/issues"
   },
-  "homepage": "https://github.com/nicescale/react-form-utils"
+  "homepage": "https://github.com/nicescale/react-form-utils",
+  "devDependencies": {
+    "babel": "^5.8.23"
+  }
 }
