@@ -1,6 +1,6 @@
 {
   "name": "@csphere/react-form-utils",
-  "version": "1.2.0",
+  "version": "1.4.2",
   "description": "Form utils for react",
   "main": "lib/index.js",
   "directories": {
