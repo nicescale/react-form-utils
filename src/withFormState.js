@@ -1,12 +1,15 @@
 var React = require('react');
 
-function withFormState(schemaBuilder) {
+var makeState = require('./State').makeState;
+
+function withFormState(schemaOrBuilder) {
   return function(Component) {
     class FormState extends React.Component {
         constructor(props, context) {
           super(props, context);
           this.state = {
-            formState: schemaBuilder(this.props)
+            formState: (typeof schemaOrBuilder === 'function') ?
+              schemaOrBuilder(this.props) : makeState(schemaOrBuilder)
           };
         }
 
