@@ -41,6 +41,12 @@ var Field = React.createClass({
     };
   },
 
+  componentWillReceiveProps(nextProps, nextContext) {
+    this.setState({
+      state: nextContext.getFieldState(nextProps.name)
+    });
+  },
+
   handleChange(event) {
     var value = event.target.value;
     if (event.target.type === 'checkbox') {
@@ -127,6 +133,14 @@ var Form = React.createClass({
       componentClass: 'form',
       autoComplete: 'off'
     };
+  },
+
+  componentWillReceiveProps(nextProps, nextContext) {
+    var state = nextContext.getFormState();
+    state.attributes = state.attributes.set('onUpdate', nextProps.onUpdate);
+    this.setState({
+      state
+    });
   },
 
   onUpdate() {

@@ -20,6 +20,13 @@ function withFormState(schemaOrBuilder) {
           }
         }
 
+        componentWillReceiveProps(nextProps) {
+          this.state = {
+            formState: (typeof schemaOrBuilder === 'function') ?
+              schemaOrBuilder(nextProps) : makeState(schemaOrBuilder)
+          };
+        }
+
         render() {
           return <Component {...this.props} formState={this.state.formState} />;
         }
