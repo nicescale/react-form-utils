@@ -2,7 +2,7 @@ var React = require('react');
 
 var makeState = require('./State').makeState;
 
-function withFormState(schemaOrBuilder) {
+function withFormState(schemaOrBuilder, isStateless = false) {
   return function(Component) {
     class FormState extends React.Component {
         constructor(props, context) {
@@ -21,10 +21,12 @@ function withFormState(schemaOrBuilder) {
         }
 
         componentWillReceiveProps(nextProps) {
-          this.state = {
-            formState: (typeof schemaOrBuilder === 'function') ?
-              schemaOrBuilder(nextProps) : makeState(schemaOrBuilder)
-          };
+          if (isStateless) {
+            this.state = {
+              formState: (typeof schemaOrBuilder === 'function') ?
+                schemaOrBuilder(nextProps) : makeState(schemaOrBuilder)
+            };
+          }
         }
 
         render() {
