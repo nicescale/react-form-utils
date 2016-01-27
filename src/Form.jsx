@@ -122,7 +122,7 @@ var Form = React.createClass({
 
   getInitialState() {
     var state = this.context.getFormState();
-    state.attributes = state.attributes.set('onUpdate', this.onUpdate);
+    state.attributes = state.attributes.set('onUpdate', this.handleUpdate);
     return {
       state: state
     };
@@ -137,13 +137,13 @@ var Form = React.createClass({
 
   componentWillReceiveProps(nextProps, nextContext) {
     var state = nextContext.getFormState();
-    state.attributes = state.attributes.set('onUpdate', nextProps.onUpdate);
+    state.attributes = state.attributes.set('onUpdate', this.handleUpdate);
     this.setState({
       state
     });
   },
 
-  onUpdate() {
+  handleUpdate() {
     this.props.onUpdate(this.state.state.value.toJS(), this.state.state.isValid());
   },
 
