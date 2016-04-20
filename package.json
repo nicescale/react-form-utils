@@ -7,8 +7,8 @@
     "lib": "lib/"
   },
   "peerDependencies": {
-    "react": "^0.14.0",
-    "immutable": ">=3.x.0"
+    "react": "^15.0.0",
+    "immutable": "^3.x.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
