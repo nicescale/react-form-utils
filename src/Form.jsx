@@ -50,7 +50,7 @@ var Field = React.createClass({
   handleChange(event) {
     var value = event.target.value;
     if (event.target.type === 'checkbox') {
-      value = event.target.checked ? value : null;
+      value = event.target.checked ? true : false;
     } else if (event.target.multiple) {
         var selectedOptions = event.target.selectedOptions ||
             Array.prototype.filter.call(event.target.options, o => o.selected);
@@ -100,8 +100,11 @@ var Field = React.createClass({
       extraProps.label = this.props.label;
     }
     var child = React.Children.only(this.props.children);
-    if (child.props.type === 'radio' || child.props.type === 'checkbox') {
+    if (child.props.type === 'radio') {
       extraProps.checked = extraProps.value === child.props.value;
+      delete extraProps.value;
+    } else if (child.props.type === 'checkbox') {
+      extraProps.checked = extraProps.value === true;
       delete extraProps.value;
     }
 
