@@ -151,10 +151,15 @@ var Form = React.createClass({
   },
 
   render() {
-    var ComponentClass = this.props.componentClass;
+    var {
+      componentClass: ComponentClass,
+      onUpdate: _,
+      children,
+      ...otherProps
+    } = this.props;
     return (
-      <ComponentClass {...this.props}>
-        {this.props.children}
+      <ComponentClass {...otherProps}>
+        {children}
       </ComponentClass>
     );
   }
