@@ -119,6 +119,7 @@ var Form = React.createClass({
 
   propTypes: {
     onUpdate: React.PropTypes.func.isRequired,
+    onSubmit: React.PropTypes.func,
     autoComplete: React.PropTypes.oneOf(['off', 'on']).isRequired,
     componentClass: React.PropTypes.node.isRequired
   },
@@ -134,7 +135,8 @@ var Form = React.createClass({
   getDefaultProps() {
     return {
       componentClass: 'form',
-      autoComplete: 'off'
+      autoComplete: 'off',
+      onSubmit: e => e.preventDefault()
     };
   },
 
@@ -157,6 +159,11 @@ var Form = React.createClass({
       children,
       ...otherProps
     } = this.props;
+
+    if (ComponentClass !== 'form') {
+      delete otherProps['onSubmit'];
+    }
+
     return (
       <ComponentClass {...otherProps}>
         {children}
