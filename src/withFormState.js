@@ -22,9 +22,11 @@ function withFormState(schemaOrBuilder, isStateless = false) {
 
         componentWillReceiveProps(nextProps) {
           if (isStateless) {
+            const dirty = this.state.formState.dirty;
+
             this.state = {
               formState: (typeof schemaOrBuilder === 'function') ?
-                schemaOrBuilder(nextProps) : makeState(schemaOrBuilder)
+                schemaOrBuilder(nextProps, dirty) : makeState(schemaOrBuilder, {}, dirty)
             };
           }
         }

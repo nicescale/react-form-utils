@@ -210,7 +210,7 @@ Object.defineProperty(State.prototype, 'dirty', {
   }
 });
 
-var makeSchema = function(schema, defaultValue) {
+var makeSchema = function(schema, defaultValue, isDirty) {
   var validation = {};
   var value = {};
 
@@ -218,7 +218,9 @@ var makeSchema = function(schema, defaultValue) {
     s.keySeq().toArray().forEach(k => {
       var property = makeProperty(s.get(k));
       s.set(k, property);
-      value[k] = defaultValue[k] || s.get(k).props.get('defaultValue', null);
+      value[k] = isDirty
+        ? defaultValue[k]
+        : defaultValue[k] || s.get(k).props.get('defaultValue', null);
       validation[k] = property.validator(value[k], property.props);
     });
     return s;
@@ -228,13 +230,13 @@ var makeSchema = function(schema, defaultValue) {
   return {schema, validation, value};
 };
 
-var makeState = function(rawSchema, rawValue) {
-  var {schema, validation, value} = makeSchema(rawSchema, rawValue || {});
+var makeState = function(rawSchema, rawValue, dirty = new Map()) {
+  var {schema, validation, value} = makeSchema(rawSchema, rawValue || {}, dirty.some(v => v));
   var attributes = new StateAttributes({
-    schema: schema,
-    value: value,
-    validation: validation,
-    dirty: Map()
+    schema,
+    value,
+    validation,
+    dirty
   });
   return new State(attributes);
 };
