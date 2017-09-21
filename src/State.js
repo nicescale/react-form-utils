@@ -1,7 +1,7 @@
 "use strict";
 
-var {Record, Map, OrderedMap, Iterable} = require('immutable');
-var Messages = require('./Messages');
+import {Record, Map, OrderedMap, Iterable} from 'immutable';
+import Messages from './Messages';
 
 
 var emptyFunc = function() {};
@@ -241,5 +241,4 @@ var makeState = function(rawSchema, rawValue, dirty = new Map()) {
   return new State(attributes);
 };
 
-
-module.exports = {State, makeState, makeProperty, FieldState};
+export {State, makeState, makeProperty, FieldState};

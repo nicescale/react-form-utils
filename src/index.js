@@ -1,13 +1,12 @@
-var {Form, Field} = require('./Form');
-var {makeState, State} = require('./State');
-var FormMixin = require('./FormMixin');
-var withFormState = require('./withFormState');
+import Form from './Form';
+import Field from './Field';
+import {makeState, State} from './State';
+import withFormState from './withFormState';
 
 module.exports = {
   Form,
   Field,
   makeState,
   State,
-  FormMixin,
   withFormState
 };
