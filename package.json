@@ -1,6 +1,6 @@
 {
   "name": "@csphere/react-form-utils",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "Form utils for react",
   "main": "lib/index.js",
   "directories": {
@@ -11,6 +11,7 @@
     "immutable": "^3.x.0"
   },
   "scripts": {
+    "start": "babel src --out-dir lib --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf lib && babel src --out-dir lib",
     "prepublish": "npm run build"
@@ -25,6 +26,12 @@
   },
   "homepage": "https://github.com/nicescale/react-form-utils",
   "devDependencies": {
-    "babel": "^5.8.23"
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1"
+  },
+  "dependencies": {
+    "prop-types": "^15.5.10"
   }
 }

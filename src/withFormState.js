@@ -1,6 +1,7 @@
-var React = require('react');
+import React from 'react';
+import PropTypes from 'prop-types';
 
-var makeState = require('./State').makeState;
+import {makeState} from './State';
 
 function withFormState(schemaOrBuilder, isStateless = false) {
   return function(Component) {
@@ -36,8 +37,8 @@ function withFormState(schemaOrBuilder, isStateless = false) {
         }
     }
     FormState.childContextTypes = {
-      getFormState: React.PropTypes.func,
-      getFieldState: React.PropTypes.func
+      getFormState: PropTypes.func,
+      getFieldState: PropTypes.func
     };
 
     FormState.displayName = `withFormState/${Component.displayName}`;
@@ -45,4 +46,4 @@ function withFormState(schemaOrBuilder, isStateless = false) {
   }
 }
 
-module.exports = withFormState;
+export default withFormState;
